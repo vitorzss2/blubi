@@ -129,12 +129,13 @@ const App = () => {
             <Button title="Create Item" onPress={handleCreate} />  // Create button when not editing
           )}
           </View>
-          {items != [] ?    <FlatList 
+         <FlatList 
           style={{  flexDirection: 'row', flexWrap: 'wrap', borderWidth: 1,  gap:4}}
             data={items}
             keyExtractor={(item) => item.id}
+            numColumns={2}
             renderItem={({ item }) => (
-              <View style={{  borderWidth: 1, padding: 10, margin: 10 }}>
+              <View style={{  borderWidth: 1, padding: 10, margin: 5, width: 135 }}>
                 <Text style={{ fontWeight: 'bold' }}>{item.name}</Text>
                 <Text>{item.description}</Text>
                 <View style={{ flex: 1, flexDirection: "row", justifyContent: 'center', alignItems: 'center', gap:4}}>
@@ -143,7 +144,7 @@ const App = () => {
                 </View>
               </View>
             )}
-          /> : <Text>Loading...</Text>}
+          />
           <Button title="Logout" color="#b51222" onPress={handleLogout} />
         </>
       ) : (
