@@ -106,11 +106,11 @@ const App = () => {
   };
 
   return (
-    <View style={{ padding: 20, alignContent: 'center', justifyContent: 'center', flex:1, padding: 100, gap: 10 }}>
+    <View style={{ padding: 20, alignContent: 'center', justifyContent: 'center', flex:1, padding: 20, gap: 10 }}>
       {user ? (
         <>
-        <View style={{ padding:10, borderWidth: 1}}>
-        <Text>Hello {user.email}!</Text>
+        <View style={{  padding:10, borderWidth: 1,}}>
+        <Text style={{ paddingBottom: 10}} >Hello {user.email}!</Text>
           <TextInput
             placeholder="Item Name"
             value={name}
@@ -129,12 +129,12 @@ const App = () => {
             <Button title="Create Item" onPress={handleCreate} />  // Create button when not editing
           )}
           </View>
-          {items ?    <FlatList
-          style={{ flexDirection: 'row', padding: 10, borderWidth: 1}}
+          {items != [] ?    <FlatList 
+          style={{  flexDirection: 'row', flexWrap: 'wrap', borderWidth: 1,  gap:4}}
             data={items}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-              <View style={{ marginVertical: 10, borderWidth: 1, padding: 10, gap:4 }}>
+              <View style={{  borderWidth: 1, padding: 10, margin: 10 }}>
                 <Text style={{ fontWeight: 'bold' }}>{item.name}</Text>
                 <Text>{item.description}</Text>
                 <View style={{ flex: 1, flexDirection: "row", justifyContent: 'center', alignItems: 'center', gap:4}}>
